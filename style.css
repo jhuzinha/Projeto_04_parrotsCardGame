@@ -41,7 +41,7 @@ h1 {
 
 }
 
-.front-card  {
+.face  {
     width: 100%;
     height: 100%;
     background-color: #A7E9AF;
@@ -61,15 +61,15 @@ h1 {
     transform: rotateY(180deg);
 }
 
-.card:hover .back-face {
+.to-turn .back-face {
     transform: rotateY(0deg);
 }
 
-.card:hover .front-face {
+.to-turn .front-face {
     transform: rotateY(-180deg);
 }
 
-.front-card img {
+img {
     width: 100px;
     height: 100px;
     display: flex;
@@ -92,12 +92,14 @@ h1 {
 
 }
 
-@media (max-width: 335px) {
+@media (max-width: 425px) {
     h1 {
         font-size: 36px;
         font-size: 36px;
         line-height: 42px;
         text-align: center;
+        margin-right: 10px;
+        margin-left:10px;
     }
     .container {
         flex-direction: column;
