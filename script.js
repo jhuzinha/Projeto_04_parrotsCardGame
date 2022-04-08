@@ -1,3 +1,6 @@
+
+const imagens = ["imagens/bobrossparrot.gif", "imagens/explodyparrot.gif", "imagens/fiestaparrot.gif", "imagens/metalparrot.gif", 
+  "imagens/revertitparrot.gif", "imagens/tripletsparrot.gif", "imagens/unicornparrot.gif"]
 let quantidade;
 let elemento1;
 let imagem1;
@@ -9,8 +12,10 @@ function comparador() {
 }
 
 function EscolherQuantidade(){
-  const imagens = ["imagens/bobrossparrot.gif", "imagens/explodyparrot.gif", "imagens/fiestaparrot.gif", "imagens/metalparrot.gif", 
-  "imagens/revertitparrot.gif", "imagens/tripletsparrot.gif", "imagens/unicornparrot.gif"]
+  let aparecerCartas; 
+  aparecerCartas = document.querySelector(".container-cards")  
+  aparecerCartas.innerHTML = ' ';
+  contador = 0;
   
   imagens.sort(comparador)
 
@@ -27,10 +32,10 @@ function EscolherQuantidade(){
   ListadeImagens.push(QuantidadedeCartas[i]);
   ListadeImagens.push(QuantidadedeCartas[i]);
 }
+  
   ListadeImagens.sort(comparador);
-
   for (let i = 0; i < quantidade; i++){
-    const aparecerCartas = document.querySelector(".container-cards")   
+    aparecerCartas = document.querySelector(".container-cards")  
     aparecerCartas.innerHTML += `
               <div class="card" onclick = "virarCartas(this)">
                 <div class="front-face face">
@@ -87,6 +92,14 @@ function FinalizarPartida(){
   let quantidadetoturn = document.querySelectorAll(".card.to-turn")
   if (quantidadetoturn.length == quantidade){
     alert(`Você ganhou em ${contador} jogadas!`)
+    reiniciarPartida()
+  }
+}
+
+function reiniciarPartida() {
+  let resposta = prompt("Quer reiniciar a partida?")
+  if (resposta === 'sim') {
+    EscolherQuantidade()
   }
 }
 
