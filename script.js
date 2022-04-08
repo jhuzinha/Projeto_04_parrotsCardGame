@@ -97,7 +97,7 @@ function FinalizarPartida(){
 }
 
 function reiniciarPartida() {
-  let resposta = prompt("Quer reiniciar a partida?")
+  let resposta = prompt("Quer reiniciar a partida?(sim ou não)")
   if (resposta === 'sim') {
     EscolherQuantidade()
   }
