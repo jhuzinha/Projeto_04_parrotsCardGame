@@ -53,8 +53,6 @@ function virarCartas(elemento){
     return
   }
   if (document.querySelectorAll(".card.to-turn").length >= limite){
-    elemento.classList.add("tranform")
-    console.log(elemento)
     return
   }  
    
