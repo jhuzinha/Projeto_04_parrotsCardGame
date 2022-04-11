@@ -74,13 +74,13 @@ function virarCartas(elemento){
   function CompararCartas(imagem1, imagem2, elemento1, elemento){
     if (imagem1 != imagem2) {
       setTimeout(function remover(){elemento.classList.remove('to-turn')
-      elemento1.classList.remove("to-turn")} , 500);
+      elemento1.classList.remove("to-turn")} , 1000);
      
     }  
     if (imagem1 == imagem2){
       limite += 2
     }
-    setTimeout(FinalizarPartida, 550)
+    setTimeout(FinalizarPartida, 1050)
   }
 }
 
