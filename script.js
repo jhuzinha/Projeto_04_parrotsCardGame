@@ -5,7 +5,7 @@ let quantidade;
 let elemento1;
 let imagem1;
 let contador = 0;
-
+let limite;
 
 function comparador() { 
 	return Math.random() -0.5; 
@@ -16,7 +16,7 @@ function EscolherQuantidade(){
   aparecerCartas = document.querySelector(".container-cards")  
   aparecerCartas.innerHTML = ' ';
   contador = 0;
-  
+  limite = 2;
   imagens.sort(comparador)
 
   const ListadeImagens = []
@@ -48,27 +48,20 @@ function EscolherQuantidade(){
   }
 }
  
-function flipFuncition(elemento){
-  elemento.classList.add("virou")
-  if (document.querySelectorAll(".virou") < 2){
-    virarCartas(elemento)
-  }  
-}
-
 function virarCartas(elemento){
-  
-  flipFuncition(elemento)
-
   if (elemento.classList.contains("to-turn")){
     return
   }
+  if (document.querySelectorAll(".card.to-turn").length >= limite){
+    return
+  }  
    
   elemento.classList.add("to-turn")
-
+  
 
   let CartasViradas = document.querySelectorAll(".to-turn")
   contador++
-
+  console.log(contador);
   if ((CartasViradas.length)%2 !== 0){
     elemento1 = elemento;
     imagem1 = elemento1.querySelector(".back-face img").src
@@ -82,8 +75,12 @@ function virarCartas(elemento){
   function CompararCartas(imagem1, imagem2, elemento1, elemento){
     if (imagem1 != imagem2) {
       setTimeout(function remover(){elemento.classList.remove('to-turn')
-      elemento1.classList.remove("to-turn")} , 500)
+      elemento1.classList.remove("to-turn")} , 500);
+     
     }  
+    if (imagem1 == imagem2){
+      limite += 2
+    }
     setTimeout(FinalizarPartida, 550)
   }
 }
@@ -98,6 +95,9 @@ function FinalizarPartida(){
 
 function reiniciarPartida() {
   let resposta = prompt("Quer reiniciar a partida?(sim ou não)")
+  while (resposta !== 'não' && resposta !== 'sim'){
+    resposta = prompt("Quer reiniciar a partida?(sim ou não)")
+    }
   if (resposta === 'sim') {
     EscolherQuantidade()
   }
