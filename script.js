@@ -53,6 +53,8 @@ function virarCartas(elemento){
     return
   }
   if (document.querySelectorAll(".card.to-turn").length >= limite){
+    elemento.classList.add("tranform")
+    console.log(elemento)
     return
   }  
    
@@ -61,7 +63,6 @@ function virarCartas(elemento){
 
   let CartasViradas = document.querySelectorAll(".to-turn")
   contador++
-  console.log(contador);
   if ((CartasViradas.length)%2 !== 0){
     elemento1 = elemento;
     imagem1 = elemento1.querySelector(".back-face img").src
@@ -100,6 +101,9 @@ function reiniciarPartida() {
     }
   if (resposta === 'sim') {
     EscolherQuantidade()
+  }
+  if (resposta === 'não'){
+    alert("Okay")
   }
 }
 
